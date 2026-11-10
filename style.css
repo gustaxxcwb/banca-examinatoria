@@ -1,0 +1,554 @@
+
+:root {
+    --blue: #a9cce3;
+    --blue-dark: #719dbb;
+    --yellow: #d9a52c;
+    --yellow-light: #f5e5bd;
+    --white: #ffffff;
+    --cream: #faf9f5;
+    --dark: #292929;
+    --gray: #777777;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+}
+
+/* CABEÇALHO */
+
+header {
+    height: 85px;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 9%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 600;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--blue-dark);
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--yellow);
+}
+
+.header-button {
+    text-decoration: none;
+    background: var(--blue);
+    color: var(--dark);
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.header-button:hover {
+    background: var(--yellow-light);
+}
+
+/* APRESENTAÇÃO */
+
+.hero {
+    min-height: 650px;
+    background:
+        radial-gradient(circle at 5% 10%, #e1eef7 0, transparent 25%),
+        radial-gradient(circle at 95% 95%, #f4e5bd 0, transparent 24%),
+        var(--cream);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 780px;
+    position: relative;
+    z-index: 2;
+}
+
+.hanger {
+    font-size: 75px;
+    color: var(--yellow);
+    margin-bottom: 5px;
+}
+
+.subtitle,
+.section-label {
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(65px, 10vw, 110px);
+    font-weight: 500;
+    letter-spacing: 4px;
+    line-height: 1;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: var(--blue-dark);
+    font-style: italic;
+}
+
+.slogan {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 25px 0;
+}
+
+.slogan span {
+    color: var(--blue-dark);
+}
+
+.separator {
+    color: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.separator span {
+    width: 65px;
+    height: 1px;
+    background: #dddddd;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.description {
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 590px;
+    margin: auto;
+}
+
+.main-button {
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    text-decoration: none;
+    background: var(--yellow);
+    color: white;
+    padding: 16px 30px;
+    border-radius: 30px;
+    margin-top: 32px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.main-button:hover {
+    background: #bd8d1f;
+    transform: translateY(-3px);
+}
+
+/* SOBRE */
+
+.about {
+    padding: 100px 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    background: white;
+}
+
+.about-text {
+    max-width: 570px;
+}
+
+.about h2,
+.contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 43px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 20px 0;
+}
+
+.about h2 span,
+.contact h2 span {
+    color: var(--blue-dark);
+    font-style: italic;
+}
+
+.about-text p {
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.about-decoration {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+}
+
+.about-decoration span {
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    color: var(--yellow);
+}
+
+.about-decoration p {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: var(--blue-dark);
+    font-style: italic;
+}
+
+.about-decoration small {
+    letter-spacing: 2px;
+    font-size: 9px;
+    margin-top: 10px;
+}
+
+/* DIFERENCIAIS */
+
+.differentials {
+    padding: 90px 9%;
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.section-heading p {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 65px;
+    gap: 25px;
+}
+
+.feature {
+    padding: 25px 15px;
+    border-right: 1px solid #dddddd;
+}
+
+.feature:last-child {
+    border-right: none;
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 18px;
+}
+
+.feature-icon.blue {
+    color: var(--blue-dark);
+}
+
+.feature-icon.yellow {
+    color: var(--yellow);
+}
+
+.feature h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--gray);
+}
+
+/* CONTATO */
+
+.contact {
+    padding: 90px 20px;
+    background: #e8f1f7;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-top: 18px;
+}
+
+.contact p {
+    max-width: 520px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.whatsapp-button {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 15px;
+    margin: 35px auto 18px;
+    background: var(--yellow);
+    color: white;
+    padding: 17px 30px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.whatsapp-button:hover {
+    background: #bd8d1f;
+    transform: translateY(-4px);
+}
+
+.whatsapp-button span {
+    font-size: 21px;
+}
+
+.contact small {
+    color: #777;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer .logo {
+    color: white;
+}
+
+footer p {
+    font-size: 13px;
+    color: #cccccc;
+    margin-top: 12px;
+}
+
+.footer-line {
+    width: 50px;
+    height: 2px;
+    background: var(--yellow);
+    margin: 25px auto;
+}
+
+footer small {
+    color: #aaaaaa;
+    font-size: 11px;
+}
+
+/* ANIMAÇÕES */
+
+.hero-content,
+.about-text,
+.feature,
+.contact {
+    animation: aparecer 1s ease both;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+
+    header {
+        padding: 0 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .about {
+        padding: 70px 8%;
+        gap: 30px;
+    }
+
+    .about-decoration {
+        width: 220px;
+        height: 220px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature:nth-child(2) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        height: auto;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .header-button {
+        padding: 10px 14px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 570px;
+        padding: 65px 20px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    .slogan {
+        font-size: 11px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 70px 8%;
+    }
+
+    .about h2,
+    .contact h2 {
+        font-size: 34px;
+    }
+
+    .about-decoration {
+        width: 220px;
+        height: 220px;
+    }
+
+    .features {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 35px;
+    }
+
+    .feature {
+        border: none;
+        padding: 20px 8px;
+    }
+
+    .feature h3 {
+        font-size: 14px;
+    }
+
+    .feature p {
+        font-size: 12px;
+    }
+
+    .differentials {
+        padding: 70px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .whatsapp-button {
+        padding: 15px 20px;
+        font-size: 11px;
+    }
+}
