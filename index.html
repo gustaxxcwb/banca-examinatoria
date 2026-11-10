@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Closet Mix | Brechó Online</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --azul: #a9cce3;
+  --azul-escuro: #648ba8;
+  --amarelo: #d9a52c;
+  --creme: #faf9f5;
+  --preto: #292929;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme);
+  color: var(--preto);
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--azul-escuro);
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--amarelo);
+}
+
+.cart {
+  background: var(--azul);
+  border: none;
+  padding: 11px 17px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hero {
+  min-height: 490px;
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  background: linear-gradient(110deg, #e4f0f7, #faf9f5 75%);
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-text small {
+  color: var(--azul-escuro);
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 67px);
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: var(--azul-escuro);
+  font-style: italic;
+}
+
+.hero p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--amarelo);
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 15px 28px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #bd8d1f;
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  width: 43%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 180px 180px 8px 8px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  padding: 28px 8%;
+  text-align: center;
+  gap: 20px;
+}
+
+.benefits div {
+  padding: 10px;
+}
+
+.benefits strong {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.benefits p {
+  color: #777;
+  font-size: 13px;
+}
+
+section.products {
+  padding: 75px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title small {
+  color: var(--amarelo);
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+.section-title p {
+  color: #777;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.category {
+  padding: 10px 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.category.active,
+.category:hover {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.product {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #00000010;
+}
+
+.product img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.product-info {
+  padding: 17px;
+}
+
+.product-info small {
+  color: var(--azul-escuro);
+}
+
+.product-info h3 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.price {
+  color: #b78a21;
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.add {
+  width: 100%;
+  border: none;
+  background: var(--azul);
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.add:hover {
+  background: #91b9d4;
+}
+
+.about {
+  padding: 75px 10%;
+  background: #e6f0f6;
+  text-align: center;
+}
+
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.9;
+  color: #555;
+}
+
+footer {
+  background: #292929;
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+footer .logo {
+  margin-bottom: 10px;
+}
+
+footer p {
+  color: #ccc;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+#cart-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #292929;
+  color: white;
+  padding: 15px 22px;
+  border-radius: 8px;
+  display: none;
+  z-index: 20;
+}
+
+@media(max-width: 850px) {
+  nav { gap: 12px; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-image { height: 280px; }
+}
+
+@media(max-width: 600px) {
+  header { padding: 15px 5%; flex-wrap: wrap; gap: 15px; }
+  .logo { font-size: 25px; }
+  nav { order: 3; width: 100%; justify-content: center; }
+  nav a { font-size: 12px; }
+  .hero { flex-direction: column; text-align: center; padding: 55px 7%; }
+  .hero-image { width: 100%; height: 300px; }
+  .benefits { grid-template-columns: 1fr; }
+  section.products { padding: 55px 5%; }
+  .product-grid { gap: 12px; }
+  .product img { height: 190px; }
+  .product-info { padding: 12px; }
+  .product-info h3 { font-size: 14px; }
+  .section-title h2 { font-size: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CLOSET <span>Mix.</span></div>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre nós</a>
+  </nav>
+
+  <button class="cart" onclick="mostrarSacola()">
+    ♡ Sacola (<span id="count">0</span>)
+  </button>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <small>SEU NOVO JEITO DE SE VESTIR</small>
+    <h1>Seu estilo.<br>Seu mundo.<br><span>Closet Mix.</span></h1>
+    <p>
+      Encontre peças incríveis, descubra novos estilos
+      e renove seu guarda-roupa sem gastar muito.
+      Moda com personalidade e propósito!
+    </p>
+    <a href="#produtos" class="btn">EXPLORAR PEÇAS →</a>
+  </div>
+
+  <img class="hero-image"
+  src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900"
+  alt="Moda e roupas">
+</section>
+
+<div class="benefits">
+  <div>
+    <strong>♡ Peças selecionadas</strong>
+    <p>Estilo e qualidade em cada escolha.</p>
+  </div>
+  <div>
+    <strong>✦ Preços acessíveis</strong>
+    <p>Moda que cabe no seu bolso.</p>
+  </div>
+  <div>
+    <strong>♧ Moda consciente</strong>
+    <p>Mais estilo, menos desperdício.</p>
+  </div>
+</div>
+
+<section class="products" id="produtos">
+  <div class="section-title">
+    <small>NOSSA COLEÇÃO</small>
+    <h2>Encontre seu estilo</h2>
+    <p>Peças especiais esperando por você.</p>
+  </div>
+
+  <div class="categories">
+    <button class="category active" onclick="filtrar('Todos',this)">Todos</button>
+    <button class="category" onclick="filtrar('Roupas',this)">Roupas</button>
+    <button class="category" onclick="filtrar('Calçados',this)">Calçados</button>
+    <button class="category" onclick="filtrar('Acessórios',this)">Acessórios</button>
+  </div>
+
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<section class="about" id="sobre">
+  <h2>Sobre a Closet Mix</h2>
+  <p>
+    A Closet Mix nasceu com a ideia de tornar a moda mais
+    acessível, criativa e consciente. Aqui você encontra
+    roupas e acessórios selecionados para expressar sua
+    personalidade, renovar seu visual e encontrar peças
+    que combinam com você.
+    <br><br>
+    <strong>Closet Mix: seu estilo, suas escolhas!</strong>
+  </p>
+</section>
+</main>
+
+<footer>
+  <div class="logo">CLOSET <span style="color:#a9cce3">Mix.</span></div>
+  <p>Seu estilo. Suas escolhas. Sempre você.</p>
+  <p>© 2026 Closet Mix - Todos os direitos reservados.</p>
+</footer>
+
+<div id="cart-message"></div>
+
+<script>
+const produtos = [
+  {
+    nome: "Blusa feminina",
+    categoria: "Roupas",
+    preco: 39.90,
+    imagem: "photo-1551163943-3f6a855d1153"
+  },
+  {
+    nome: "Look casual",
+    categoria: "Roupas",
+    preco: 59.90,
+    imagem: "photo-1483985988355-763728e1935b"
+  },
+  {
+    nome: "Bolsa feminina",
+    categoria: "Acessórios",
+    preco: 45.90,
+    imagem: "photo-1584917865442-de89df76afd3"
+  },
+  {
+    nome: "Tênis casual",
+    categoria: "Calçados",
+    preco: 69.90,
+    imagem: "photo-1542291026-7eec264c27ff"
+  },
+  {
+    nome: "Vestido feminino",
+    categoria: "Roupas",
+    preco: 49.90,
+    imagem: "photo-1496747611176-843222e1e57c"
+  },
+  {
+    nome: "Óculos de sol",
+    categoria: "Acessórios",
+    preco: 29.90,
+    imagem: "photo-1511499767150-a48a237f0083"
+  },
+  {
+    nome: "Jaqueta estilosa",
+    categoria: "Roupas",
+    preco: 79.90,
+    imagem: "photo-1548126032-079a0fb0099d"
+  },
+  {
+    nome: "Bolsa casual",
+    categoria: "Acessórios",
+    preco: 54.90,
+    imagem: "photo-1548036328-c9fa89d128fa"
+  }
+];
+
+let sacola = [];
+
+function renderizar(lista) {
+  const grid = document.getElementById("product-grid");
+  grid.innerHTML = "";
+
+  lista.forEach(produto => {
+    const index = produtos.indexOf(produto);
+
+    grid.innerHTML += `
+      <article class="product">
+        <img src="https://images.unsplash.com/${produto.imagem}?w=600&h=700&fit=crop"
+        alt="${produto.nome}">
+        <div class="product-info">
+          <small>${produto.categoria}</small>
+          <h3>${produto.nome}</h3>
+          <div class="price">
+            R$ ${produto.preco.toFixed(2).replace(".",",")}
+          </div>
+          <button class="add" onclick="adicionar(${index})">
+            ADICIONAR À SACOLA
+          </button>
+        </div>
+      </article>
+    `;
+  });
+}
+
+function filtrar(categoria, botao) {
+  document.querySelectorAll(".category").forEach(b =>
+    b.classList.remove("active")
+  );
+
+  botao.classList.add("active");
+
+  const lista = categoria === "Todos"
+    ? produtos
+    : produtos.filter(p => p.categoria === categoria);
+
+  renderizar(lista);
+}
+
+function adicionar(index) {
+  sacola.push(produtos[index]);
+
+  document.getElementById("count").textContent = sacola.length;
+
+  const mensagem = document.getElementById("cart-message");
+  mensagem.textContent = "♡ Produto adicionado à sacola!";
+  mensagem.style.display = "block";
+
+  setTimeout(() => mensagem.style.display = "none", 2500);
+}
+
+function mostrarSacola() {
+  if (sacola.length === 0) {
+    alert("Sua sacola está vazia!");
+    return;
+  }
+
+  let total = sacola.reduce((soma,p) => soma + p.preco, 0);
+
+  let resumo = sacola.map(p =>
+    p.nome + " - R$ " + p.preco.toFixed(2).replace(".",",")
+  ).join("\n");
+
+  const mensagem =
+    "Olá! Gostaria de consultar estes produtos da Closet Mix:\n\n" +
+    resumo +
+    "\n\nTotal: R$ " + total.toFixed(2).replace(".",",");
+
+  alert(mensagem);
+}
+
+renderizar(produtos);
+</script>
+
+</body>
+</html>
